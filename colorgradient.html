@@ -15,8 +15,8 @@
 
             body = document.getElementsByTagName("body")[0];
             setInterval(()=>{
-                var t = new Date().getTime();
-                a = ((t % (conf["speed"]||30000))/(conf["speed"]||30000))*360;
+                var t = new Date().getTime()+(parseInt(conf["offset"])||0);
+                a = ((((t)) % (conf["speed"]||30000))/(conf["speed"]||30000))*360;
                 body.style.backgroundColor = "hsl("+String(a)+", 100%, 50%)";
             },(conf["refresh"]||50));
         </script>
