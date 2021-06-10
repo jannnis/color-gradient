@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Color Gradient</title>
+    </head>
+    <body>
+        <script>
+            let preconf = window.location.hash.substring(1).split("&");
+            var conf = {};
+            preconf.forEach(e =>{
+                let a = e.split("=");
+                conf[a[0]] = a[1];
+            });
+            console.log(conf);
+
+            body = document.getElementsByTagName("body")[0];
+            setInterval(()=>{
+                var t = new Date().getTime();
+                a = ((t % (conf["speed"]||30000))/(conf["speed"]||30000))*360;
+                body.style.backgroundColor = "hsl("+String(a)+", 100%, 50%)";
+            },(conf["refresh"]||50));
+        </script>
+    </body>
+</html>
